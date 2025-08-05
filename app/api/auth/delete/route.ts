@@ -1,4 +1,3 @@
-// app/api/auth/delete/route.ts
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/authOptions";
@@ -14,9 +13,7 @@ export async function DELETE() {
   }
 
   const userId = session.user.id;
-  // delete all tasks first (if your schema doesn’t cascade)
   await prisma.task.deleteMany({ where: { userId } });
-  // then delete the user
   await prisma.user.delete({ where: { id: userId } });
 
   return NextResponse.json({ ok: true });

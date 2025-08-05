@@ -21,7 +21,6 @@ export function DeleteAccountButton() {
     setLoading(true);
     const res = await fetch("/api/auth/delete", { method: "DELETE" });
     if (res.ok) {
-      // clear the session & redirect to sign-up
       await signOut({ callbackUrl: "/auth/register" });
     } else {
       setLoading(false);

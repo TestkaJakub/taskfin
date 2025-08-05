@@ -1,4 +1,3 @@
-// components/ThemeToggle.tsx
 "use client";
 
 import { useTheme } from "next-themes";
@@ -10,7 +9,6 @@ export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);

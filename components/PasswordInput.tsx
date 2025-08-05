@@ -1,7 +1,6 @@
-// components/PasswordInput.tsx
 "use client";
 import { forwardRef, InputHTMLAttributes, useState } from "react";
-import { Input } from "@/components/ui/input";       // your shadcn Input
+import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 
 type Props = InputHTMLAttributes<HTMLInputElement>;
@@ -15,7 +14,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, Props>(
           {...props}
           ref={ref}
           type={visible ? "text" : "password"}
-          className="pr-10"            // make room for the icon
+          className="pr-10"
         />
         <button
           type="button"

@@ -19,7 +19,6 @@ export default function RegisterPage() {
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  // Redirect if already signed in
   useEffect(() => {
     if (status === "authenticated") router.replace("/");
   }, [status, router]);

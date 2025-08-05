@@ -66,7 +66,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Title required" }, { status: 400 });
   }
 
-  // sanitize & default ratings
   const imp = Number(importance) || 0;
   const enj = Number(enjoyment) || 0;
   const prl = Number(practicalValue) || 0;

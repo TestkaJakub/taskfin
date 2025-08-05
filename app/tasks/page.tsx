@@ -3,7 +3,6 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { computePriority } from "@/lib/prioritization";
 
 import {
   Card,
@@ -11,7 +10,6 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -41,12 +39,10 @@ export default function TasksPage() {
   const [enjoyment, setEnjoyment] = useState(0);
   const [practicalValue, setPracticalValue] = useState(0);
 
-  // Redirect if not auth’d
   useEffect(() => {
     if (status === "unauthenticated") router.replace("/auth/login");
   }, [status, router]);
 
-  // Fetch tasks
   useEffect(() => {
     if (status === "authenticated") {
       fetch("/api/tasks")

@@ -1,4 +1,3 @@
-// components/TaskCardWrapper.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -11,7 +10,6 @@ export default function TaskCardWrapper({ task }: { task: TaskDTO }) {
   async function handleComplete() {
     const res = await fetch(`/api/tasks/${task.id}`, { method: "DELETE" });
     if (res.ok) {
-      // refresh this segment to re-run the server component
       router.refresh();
     } else {
       alert("Failed to complete task");
@@ -21,7 +19,7 @@ export default function TaskCardWrapper({ task }: { task: TaskDTO }) {
   return (
     <TaskCard
       task={task}
-      onComplete={handleComplete}  // now defined inside the client component
+      onComplete={handleComplete}
     />
   );
 }
