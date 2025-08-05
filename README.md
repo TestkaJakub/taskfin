@@ -2,6 +2,8 @@
 
 Taskfin is a simple to-do list app that helps you prioritize tasks and hides tasks that are not important at the moment. 
 
+![Taskfin Showcase](image.png)
+
 ## Getting Started
 
 Before you start using the app, populate the .env file, it should look something like this:
