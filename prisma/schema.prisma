@@ -10,3 +10,23 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  hash     String
+  tasks    Task[]
+}
+
+model Task {
+  id             Int       @id @default(autoincrement())
+  title          String
+  description    String?
+  importance     Int       @default(0)
+  enjoyment      Int       @default(0)
+  practicalValue Int       @default(0)
+  due            DateTime?
+  createdAt      DateTime  @default(now())
+  userId         Int
+  user           User      @relation(fields: [userId], references: [id])
+}
